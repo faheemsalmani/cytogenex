@@ -33,7 +33,7 @@ const careers = [
 export default function Career() {
     return (
         <section id="career" className="py-24 bg-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/30 rounded-l-full blur-3xl -z-10" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-teal-50/30 rounded-l-full blur-3xl -z-10" />
 
             <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
                 <div className="text-center mb-16">
@@ -41,7 +41,7 @@ export default function Career() {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block"
+                        className="text-teal-600 font-bold uppercase tracking-widest text-sm mb-4 block"
                     >
 
                     </motion.span>
@@ -72,13 +72,13 @@ export default function Career() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: i * 0.1 }}
-                            className="bg-white border border-slate-100 p-8 rounded-[32px] shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 flex flex-col h-full group"
+                            className="bg-white border border-slate-100 p-8 rounded-[32px] shadow-sm hover:shadow-xl hover:shadow-teal-900/5 hover:border-teal-100 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-2 flex flex-col h-full group"
                         >
                             <div className="flex items-start justify-between mb-6">
-                                <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                                <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:bg-teal-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-teal-500/30">
                                     <Briefcase className="w-6 h-6" />
                                 </div>
-                                <span className="px-4 py-1.5 bg-slate-100 text-slate-600 font-semibold text-sm rounded-full">
+                                <span className="px-4 py-1.5 bg-slate-100 text-slate-600 font-semibold text-sm rounded-full transition-colors group-hover:bg-teal-50 group-hover:text-teal-700">
                                     {job.department}
                                 </span>
                             </div>
@@ -94,9 +94,9 @@ export default function Career() {
                                 </div>
                             </div>
 
-                            <div className="mt-auto pt-6 border-t border-slate-100">
-                                <button className="flex items-center justify-center gap-2 w-full py-4 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-2xl group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
-                                    I'm interested <ArrowRight className="w-5 h-5" />
+                            <div className="mt-auto pt-6 border-t border-slate-100 transition-colors group-hover:border-teal-50">
+                                <button className="flex items-center justify-center gap-2 w-full py-4 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-2xl group-hover:bg-teal-500 group-hover:text-white group-hover:border-teal-500 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:shadow-md group-hover:shadow-teal-500/20">
+                                    I&apos;m interested <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                                 </button>
                             </div>
                         </motion.div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, Award, Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
     const features = [
@@ -13,7 +14,7 @@ export default function About() {
     return (
         <section id="about" className="py-24 bg-slate-50 relative overflow-hidden">
             {/* Decorative background circle */}
-            <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[800px] h-[800px] bg-indigo-50/50 rounded-full blur-3xl opacity-60 z-0 pointer-events-none" />
+            <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[800px] h-[800px] bg-teal-50/50 rounded-full blur-3xl opacity-60 z-0 pointer-events-none animate-pulse-soft" />
 
             <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 {/* Left Side: Images */}
@@ -23,12 +24,14 @@ export default function About() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative z-10"
+                        className="w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 hover:shadow-teal-900/10 transition-shadow duration-500"
                     >
-                        <img
+                        <Image
                             src="/Research lab.png"
                             alt="Lab Researchers"
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                         />
                     </motion.div>
 
@@ -37,12 +40,14 @@ export default function About() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="absolute -bottom-16 -right-16 w-2/3 aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-8 border-slate-50 z-20 hidden md:block"
+                        className="absolute -bottom-16 -right-16 w-2/3 aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-slate-50 z-20 hidden md:block"
                     >
-                        <img
+                        <Image
                             src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
                             alt="Scientific Analysis"
-                            className="w-full h-full object-cover"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                         />
                     </motion.div>
 
@@ -51,10 +56,10 @@ export default function About() {
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
-                        className="absolute top-10 -left-10 bg-white px-8 py-6 rounded-3xl shadow-xl flex items-center justify-center gap-4 z-30 border border-slate-100"
+                        className="absolute top-10 -left-10 bg-white/95 px-8 py-6 rounded-3xl shadow-xl flex items-center justify-center gap-4 z-30 border border-white backdrop-blur-md animate-float"
                     >
-                        <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                            <span className="text-3xl font-extrabold text-blue-700">1st</span>
+                        <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center">
+                            <span className="text-3xl font-extrabold text-teal-600">1st</span>
                         </div>
                         <div>
                             <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">Ranked</p>
@@ -69,7 +74,7 @@ export default function About() {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4"
+                        className="text-teal-600 font-bold uppercase tracking-widest text-sm mb-4"
                     >
                         About Us
                     </motion.span>
@@ -113,12 +118,12 @@ export default function About() {
                                 transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
                                 className="flex items-start gap-4"
                             >
-                                <div className="flex-shrink-0 mt-1 text-blue-600">
+                                <div className="flex-shrink-0 mt-1 text-sky-500">
                                     {feature.icon}
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-slate-900 mb-1">{feature.title}</h4>
-                                    <p className="text-slate-600 text-sm leading-relaxed">{feature.text}</p>
+                                    <p className="text-slate-600 text-sm leading-relaxed font-light">{feature.text}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -131,7 +136,7 @@ export default function About() {
                         transition={{ delay: 0.7 }}
                         className="mt-12"
                     >
-                        <button className="px-8 py-4 bg-slate-900 text-white rounded-full font-semibold text-lg hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                        <button className="px-8 py-4 bg-slate-900 text-white rounded-full font-semibold text-lg hover:bg-slate-800 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-lg hover:shadow-xl hover:-translate-y-1 hover:shadow-slate-900/10">
                             Read Our History
                         </button>
                     </motion.div>

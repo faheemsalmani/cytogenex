@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import { Activity, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
