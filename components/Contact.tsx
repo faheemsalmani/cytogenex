@@ -31,7 +31,7 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block"
                     >
-                        Contact Us
+
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
