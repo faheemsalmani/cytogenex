@@ -51,7 +51,7 @@ export default function TherapeuticExpertise() {
                         viewport={{ once: true }}
                         className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block"
                     >
-                        Therapeutic Expertise
+
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -72,25 +72,44 @@ export default function TherapeuticExpertise() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {expertiseData.map((item, i) => (
-                        <motion.div
-                            key={item.title}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.1 }}
-                            className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
-                        >
-                            <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm shadow-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                                {item.icon}
-                            </div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
-                            <p className="text-slate-600 leading-relaxed">
-                                {item.description}
-                            </p>
-                        </motion.div>
-                    ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+                    {expertiseData.map((item, i) => {
+                        const gradients = [
+                            "from-blue-50 to-indigo-50",
+                            "from-emerald-50 to-teal-50",
+                            "from-purple-50 to-pink-50",
+                            "from-amber-50 to-orange-50",
+                            "from-sky-50 to-blue-50",
+                            "from-rose-50 to-red-50"
+                        ];
+                        const hoverGradients = [
+                            "group-hover:from-blue-100 group-hover:to-indigo-100",
+                            "group-hover:from-emerald-100 group-hover:to-teal-100",
+                            "group-hover:from-purple-100 group-hover:to-pink-100",
+                            "group-hover:from-amber-100 group-hover:to-orange-100",
+                            "group-hover:from-sky-100 group-hover:to-blue-100",
+                            "group-hover:from-rose-100 group-hover:to-red-100"
+                        ];
+                        return (
+                            <motion.div
+                                key={item.title}
+                                initial={{ opacity: 0, rotateY: 45, x: -50 }}
+                                whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
+                                className={`bg-gradient-to-br ${gradients[i % gradients.length]} ${hoverGradients[i % hoverGradients.length]} p-8 rounded-3xl shadow-sm border border-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden`}
+                            >
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-bl-full opacity-50 transition-transform duration-500 origin-top-right group-hover:scale-150" />
+                                <div className="w-16 h-16 bg-white text-slate-800 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-white/60 group-hover:scale-110 transition-transform duration-300 relative z-10">
+                                    {item.icon}
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">{item.title}</h3>
+                                <p className="text-slate-700 leading-relaxed relative z-10 font-medium">
+                                    {item.description}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
                 {/* CTA Section within Expertise */}

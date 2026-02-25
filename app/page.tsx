@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import TherapeuticExpertise from "../components/TherapeuticExpertise";
 import About from "../components/About";
+import Career from "../components/Career";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         <Services />
         <TherapeuticExpertise />
+        <Career />
         <Contact />
         {/* Additional CTA or Newsletter section */}
         <section className="py-24 bg-blue-700 relative overflow-hidden">

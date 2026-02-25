@@ -1,9 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Microscope, Dna, ShieldCheck } from "lucide-react";
+import { ArrowRight, Microscope, Dna, ShieldCheck, Users } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+    const [clients, setClients] = useState(0);
+    const [experience, setExperience] = useState(0);
+    const [accuracy, setAccuracy] = useState(0);
+
+    useEffect(() => {
+        const targetClients = Math.floor(Math.random() * (40 - 5 + 1)) + 5;
+        const targetExperience = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+        const targetAccuracy = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+
+        const duration = 2000;
+        const stepTime = 30;
+        const steps = duration / stepTime;
+
+        let step = 0;
+        const timer = setInterval(() => {
+            step++;
+            setClients(Math.floor((targetClients / steps) * step));
+            setExperience(Math.floor((targetExperience / steps) * step));
+            setAccuracy(Math.floor((targetAccuracy / steps) * step));
+            if (step >= steps) clearInterval(timer);
+        }, stepTime);
+        return () => clearInterval(timer);
+    }, []);
     return (
         <section id="home" className="relative min-h-[95vh] w-full flex items-center pt-24 pb-12 overflow-hidden bg-slate-50">
             {/* Background Image */}
@@ -63,19 +87,19 @@ export default function Hero() {
                         className="grid grid-cols-3 gap-8 pt-10 mt-4 border-t border-slate-200"
                     >
                         <div className="flex flex-col gap-2">
-                            <Microscope className="w-8 h-8 text-blue-600" />
-                            <span className="text-2xl font-bold text-slate-900">20+</span>
+                            <Users className="w-8 h-8 text-blue-600" />
+                            <span className="text-2xl font-bold text-slate-900">{clients}+</span>
+                            <span className="text-sm font-medium text-slate-500 uppercase tracking-wide">Enterprise Clients</span>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <Microscope className="w-8 h-8 text-indigo-600" />
+                            <span className="text-2xl font-bold text-slate-900">{experience}+</span>
                             <span className="text-sm font-medium text-slate-500 uppercase tracking-wide">Years Experience</span>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <Dna className="w-8 h-8 text-blue-600" />
-                            <span className="text-2xl font-bold text-slate-900">99.9%</span>
+                            <Dna className="w-8 h-8 text-emerald-600" />
+                            <span className="text-2xl font-bold text-slate-900">{accuracy}%</span>
                             <span className="text-sm font-medium text-slate-500 uppercase tracking-wide">Clinical Accuracy</span>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <ShieldCheck className="w-8 h-8 text-blue-600" />
-                            <span className="text-2xl font-bold text-slate-900">Tier 1</span>
-                            <span className="text-sm font-medium text-slate-500 uppercase tracking-wide">Certified Labs</span>
                         </div>
                     </motion.div>
                 </div>
